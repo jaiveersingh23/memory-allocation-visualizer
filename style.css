@@ -19,6 +19,7 @@ body {
     background-color: white;
     padding: 20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
 }
 
 h1 {
@@ -30,35 +31,54 @@ h1 {
     display: flex;
     justify-content: space-between;
     margin-bottom: 20px;
+    gap: 20px;
 }
 
 .controls div {
     flex: 1;
 }
 
-input[type="text"] {
+input[type="text"], select, button {
     width: 100%;
-    padding: 8px;
-    margin-top: 5px;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
 }
 
-select, button {
-    width: 100%;
-    padding: 8px;
-    margin-top: 5px;
+button {
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
 }
 
-#memoryContainer {
+button:hover {
+    background-color: #45a049;
+}
+
+#memoryVisualizer {
+    margin-top: 20px;
+}
+
+.memory-container {
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 15px;
 }
 
 .memoryBlock {
-    margin: 5px 0;
+    width: 45%;
+    min-height: 60px;
+    margin: 10px 0;
     padding: 10px;
     color: white;
     font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     text-align: center;
+    border-radius: 4px;
 }
 
 .firstFit {
@@ -71,4 +91,16 @@ select, button {
 
 .worstFit {
     background-color: #FF5722;
+}
+
+.notAllocated {
+    background-color: #FF9800;
+    color: black;
+    font-weight: normal;
+}
+
+.availableBlock {
+    background-color: #9E9E9E;
+    color: white;
+    font-weight: normal;
 }
