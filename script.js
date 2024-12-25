@@ -103,8 +103,20 @@ function worstFit(memoryBlocks, processes) {
 
 function visualizeMemoryAllocation(memoryBlocks, allocatedMemory) {
     const memoryContainer = document.getElementById('memoryContainer');
-    memoryContainer.innerHTML = '';
+    const allocatedMemoryContainer = document.getElementById('allocatedMemoryContainer');
 
+    memoryContainer.innerHTML = '';
+    allocatedMemoryContainer.innerHTML = '';
+
+    // Display available memory blocks
+    memoryBlocks.forEach(block => {
+        const memoryBlockDiv = document.createElement('div');
+        memoryBlockDiv.classList.add('memoryBlock', 'availableBlock');
+        memoryBlockDiv.innerText = `Block Size: ${block}`;
+        memoryContainer.appendChild(memoryBlockDiv);
+    });
+
+    // Display allocated memory
     allocatedMemory.forEach(item => {
         const memoryBlockDiv = document.createElement('div');
         memoryBlockDiv.classList.add('memoryBlock');
@@ -113,8 +125,10 @@ function visualizeMemoryAllocation(memoryBlocks, allocatedMemory) {
             memoryBlockDiv.innerText = `Process ${item.process} - Not Allocated`;
         } else {
             memoryBlockDiv.innerText = `Process ${item.process} allocated to block ${item.block}`;
-            memoryBlockDiv.classList.add(item.block === 300 ? 'firstFit' : item.block === 500 ? 'bestFit' : 'worstFit');
+            if (item.block === 300) memoryBlockDiv.classList.add('firstFit');
+            else if (item.block === 500) memoryBlockDiv.classList.add('bestFit');
+            else memoryBlockDiv.classList.add('worstFit');
         }
-        memoryContainer.appendChild(memoryBlockDiv);
+        allocatedMemoryContainer.appendChild(memoryBlockDiv);
     });
 }
