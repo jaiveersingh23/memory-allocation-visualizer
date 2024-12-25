@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memory Allocation Visualization Tool</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Memory Allocation Visualization</h1>
+
+        <div class="controls">
+            <div>
+                <label for="algorithm">Select Algorithm:</label>
+                <select id="algorithm">
+                    <option value="firstFit">First Fit</option>
+                    <option value="bestFit">Best Fit</option>
+                    <option value="worstFit">Worst Fit</option>
+                </select>
+            </div>
+
+            <div>
+                <label for="processes">Enter Processes (comma separated):</label>
+                <input type="text" id="processes" placeholder="e.g. 100, 200, 150">
+            </div>
+
+            <div>
+                <button id="allocateMemory">Allocate Memory</button>
+            </div>
+        </div>
+
+        <div id="memoryVisualizer">
+            <h2>Memory Blocks:</h2>
+            <div id="memoryContainer"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
